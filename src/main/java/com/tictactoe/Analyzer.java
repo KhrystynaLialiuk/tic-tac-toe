@@ -79,14 +79,14 @@ public class Analyzer {
         return (columnCrossed || rowCrossed || diagonal1Crossed || diagonal2Crossed);
     }
 
-    public void continueGame(Player player, Computer computer, Analyzer analyzer, Field field) {
+    public void continueGame(Player player, Computer computer, Field field) {
         numberOfRoundsPlayed++;
         if (numberOfRoundsPlayed < preferredNumberOfRounds) {
             columnCrossed = false;
             rowCrossed = false;
             diagonal2Crossed = false;
             diagonal1Crossed = false;
-            runGameRound(player, computer, analyzer, field.getFormat());
+            runGameRound(player, computer, this, field.getFormat());
             field.getFrame().dispose();
         } else {
             showGameResults(player, computer, field);

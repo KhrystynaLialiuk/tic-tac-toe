@@ -27,17 +27,17 @@ public class ButtonListener implements ActionListener {
         if (analyzer.somebodyHasWon(field, "X")) {
             player.setPlayerScore(player.getPlayerScore() + 1);
             JOptionPane.showMessageDialog(null, PLAYER_WON_ROUND);
-            analyzer.continueGame(player, computer, analyzer, field);
+            analyzer.continueGame(player, computer, field);
         } else if (field.areThereEnabledButtons()) {
             computer.makeComputerMove(field);
             if (analyzer.somebodyHasWon(field, "O")) {
                 computer.setComputerScore(computer.getComputerScore() + 1);
                 JOptionPane.showMessageDialog(null, COMPUTER_WON_ROUND);
-                analyzer.continueGame(player, computer, analyzer, field);
+                analyzer.continueGame(player, computer, field);
             }
         } else {
             JOptionPane.showMessageDialog(null, DRAW_IN_ROUND);
-            analyzer.continueGame(player, computer, analyzer, field);
+            analyzer.continueGame(player, computer, field);
         }
     }
 }
